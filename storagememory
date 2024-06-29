@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract StorageMemory {
+
+    
+    uint public storedData;
+    address public owner;
+
+    
+    constructor() {
+        owner = msg.sender;
+    }
+
+  
+  
+    function setStoredData(uint _data) public {
+        require(msg.sender == owner, "Only owner can set data");
+        storedData = _data;
+    }
+
+    
+    function multiplyData(uint _data) public pure returns (uint) {
+        uint tempData = _data * 2; 
+        return tempData;
+    }
+}
